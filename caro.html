@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Caro Game</title>
+</head>
+
+<body>
+    <audio id="backgroundMusic">
+        <source src="click.wav" type="audio/mp3">
+     </audio>
+    <audio id="moveSound" src="đánh.wav"></audio>
+    <audio id="winSound" src="win.wav"></audio>
+    <h1>Simple XO Game</h1>
+    <div class="hienthinguoichoi">
+        <div class="nguoichoi_X" id="nguoichoi">
+            <p>Score X: </p>
+            <div class="designten">
+                <div id="tennguoichoi_X"> </div>
+            </div>
+        </div>
+        <div class="nguoichoi_O" id="nguoichoi">
+            <p>Score O: </p>
+            <div class="designten">
+                <div id="tennguoichoi_O"> </div>
+            </div>
+        </div>
+    </div>
+    <div id="container">
+        <div class="block">
+            <div id="box1" class="box top left">
+                <span data-player="none" onclick="play(this)">&nbsp;</span>
+            </div>
+            <div id="box2" class="box top">
+                <span data-player="none" onclick="play(this)">&nbsp;</span>
+            </div>
+            <div id="box3" class="box top right">
+                <span data-player="none" onclick="play(this)">&nbsp;</span>
+            </div>
+        </div>
+        <div class="block">
+            <div id="box4" class="box left">
+                <span data-player="none" onclick="play(this)">&nbsp;</span>
+            </div>
+            <div id="box5" class="box">
+                <span data-player="none" onclick="play(this)">&nbsp;</span>
+            </div>
+            <div id="box6" class="box right">
+                <span data-player="none" onclick="play(this)">&nbsp;</span>
+            </div>
+        </div>
+        <div class="block">
+            <div id="box7" class="box bottom left">
+                <span data-player="none" onclick="play(this)">&nbsp;</span>
+            </div>
+            <div id="box8" class="box bottom">
+                <span data-player="none" onclick="play(this)">&nbsp;</span>
+            </div>
+            <div id="box9" class="box bottom right">
+                <span data-player="none" onclick="play(this)">&nbsp;</span>
+            </div>
+        </div>
+    </div>
+    <div class="hehe">
+        <button onclick="chuyenTrang()" style="cursor: pointer;" class="return">
+            <img src="go-back.png" alt="Hình ảnh">
+        </button>
+    </div>
+    
+    <script>
+        function chuyenTrang() {
+
+            // Chuyển đến trang khác, ví dụ: "trangmoi.html"
+            window.location.href = "index.html";
+            
+        }
+    </script>
+    <script>
+        // Lấy tên người chơi từ localStorage
+        const username_X = localStorage.getItem('username_X');
+        const username_O = localStorage.getItem('username_O');
+
+        // Hiển thị tên người chơi trong trang "caro.html"
+        document.getElementById('tennguoichoi_X').innerText = username_X;
+        document.getElementById('tennguoichoi_O').innerText = username_O;
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+   // Code trong này sẽ chạy khi DOM đã được tải hoàn toàn
+
+   // Phát nhạc khi trang web được khởi tạo
+   playBackgroundMusic();
+
+   function playBackgroundMusic() {
+   var backgroundMusic = document.getElementById("backgroundMusic");
+
+   // Kiểm tra xem trình duyệt có hỗ trợ âm thanh không
+   if (backgroundMusic && typeof backgroundMusic.play === 'function') {
+      backgroundMusic.play();
+   }
+}
+
+});
+    </script>
+    <script src="index.js"></script>
+</body>
+
+</html>
